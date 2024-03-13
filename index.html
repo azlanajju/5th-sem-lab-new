@@ -94,6 +94,12 @@
         </p>
         <p onclick="switchProgram('program_container10')">
           <img src="./icons/html.png" alt=""> program10.html
+        </p> 
+        <p onclick="switchProgram('program_container11')">
+          <img src="./icons/html.png" alt=""> program11.html
+        </p>
+        <p onclick="switchProgram('program_container12')">
+          <img src="./icons/html.png" alt=""> program12.html
         </p>
       </div>
 
@@ -877,7 +883,7 @@
     src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
     &lt;/head&gt;
     &lt;body&gt;
-    <div>
+    
     <div ng-app="myApp">
     <div ng-controller="EmployeeController">
     <h1>Employee List</h1>
@@ -906,10 +912,10 @@
     });
     };
     });
-   </script>
+    </script>
     &lt;/body&gt;
     &lt;/html&gt;
-   </code>
+    </code>
     </pre>
     </div>
     </div>
@@ -1003,15 +1009,15 @@
     </script>
     &lt;/body&gt;
     &lt;/html&gt;
+    </code>
+    </pre>
+    </div>
+    </div>
 
-
-
-
-      
 <!-- program 11 -->
 
 
-      <div  id="program_container11"  class="textarea_container"  style="display: none">
+    <div  id="program_container11"  class="textarea_container"  style="display: none">
       <div class="line_numbers">
         <p>1</p>
         <p>2</p>
@@ -1049,9 +1055,7 @@
       </div>
       <div class="text_area" id="program11">
     <pre><code class="language-markup">
-
-      
- &lt;!DOCTYPE html&gt;
+    &lt;!DOCTYPE html&gt;
     &lt;html&gt;
     &lt;head&gt;
     <title>Student Details</title>
@@ -1060,40 +1064,42 @@
     &lt;/head&gt;
     &lt;body ng-app="myApp" &gt;
     <h1>Student Details</h1>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>CGPA</th>
-</tr>
-</thead>
-<tbody>
-<tr ng-repeat="student in students">
-<td>{{student.name | uppercase}}</td>
-<td>{{student.cgpa}}</td>
-</tr>
-</tbody>
-</table>
-<script>
-angular.module('myApp', []).controller('appCtrl', function($scope) {
-$scope.students = [
-{ name: "John Doe", cgpa: 3.8 },
-{ name: "Jane Doe", cgpa: 3.6 },
-{ name: "Peter Parker", cgpa: 3.9 },
-{ name: "Mary Jane Watson", cgpa: 3.7 }
-];
-});
-</script>
+    <table>
+    <thead>
+    <tr>
+    <th>Name</th>
+    <th>CGPA</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="student in students">
+    <td>{{student.name | uppercase}}</td>
+    <td>{{student.cgpa}}</td>
+    </tr>
+    </tbody>
+    </table>
+    <script>
+    angular.module('myApp', []).controller('appCtrl', function($scope) {
+    $scope.students = [
+    { name: "John Doe", cgpa: 3.8 },
+    { name: "Jane Doe", cgpa: 3.6 },
+    { name: "Peter Parker", cgpa: 3.9 },
+    { name: "Mary Jane Watson", cgpa: 3.7 }
+    ];
+    });
+    </script>
 
- &lt;/body&gt;
+    &lt;/body&gt;
     &lt;/html&gt;
-
+    </code>
+    </pre>
+  </div>
+  </div>
 
 
       <!-- program 12 -->
 
-
-      <div  id="program_container12"  class="textarea_container"  style="display: none">
+    <div  id="program_container12"  class="textarea_container"  style="display: none">
       <div class="line_numbers">
         <p>1</p>
         <p>2</p>
@@ -1131,9 +1137,7 @@ $scope.students = [
       </div>
       <div class="text_area" id="program12">
     <pre><code class="language-markup">
-
-      
-       &lt;!DOCTYPE html&gt;
+    &lt;!DOCTYPE html&gt;
     &lt;html&gt;
     &lt;head&gt;
        <title>AMJULAR JS DATE UPDATE</title>
@@ -1142,47 +1146,36 @@ $scope.students = [
       &lt;/head&gt;
     &lt;body ng-app="myApp" &gt
       <div ng-controller="myController">
-<h2>Date Display</h2>
-<label>Date Format:
-<select ng-model="selectedFormat" ng-change="updateDate()">
-<option value="fullDate">Full Date</option>
-<option value="shortDate">Short Date</option>
-<option value="mediumTime">Medium Time</option>
-<option value="shortTime">short Time</option>
-<option value="yyyy-MM-dd HH:mm:ss">Custom Format (yyyy-MM-dd
-HH:mm:ss)</option>
-</select>
-</label>
-<p>Selected Date Format: {{ selectedFormat }}</p>
-<p>Formatted Date: {{ formattedDate }}</p>
-</div>
+      <h2>Date Display</h2>
+      <label>Date Format:
+      <select ng-model="selectedFormat" ng-change="updateDate()">
+      <option value="fullDate">Full Date</option>
+      <option value="shortDate">Short Date</option>
+      <option value="mediumTime">Medium Time</option>
+      <option value="shortTime">short Time</option>
+      <option value="yyyy-MM-dd HH:mm:ss">Custom Format (yyyy-MM-dd
+      HH:mm:ss)</option>
+      </select>
+      </label>
+      <p>Selected Date Format: {{ selectedFormat }}</p>
+      <p>Formatted Date: {{ formattedDate }}</p>
+      </div>
       <script>
 
-        var app = angular.module('myApp', []);
-app.controller('myController', function ($scope, $filter) {
-$scope.selectedFormat = 'fullDate'; // Default date format
-$scope.updateDate = function () {
-var currentDate = new Date();
-$scope.formattedDate = $filter('date')(currentDate, $scope.selectedFormat);
-};
-// Initial date update
-$scope.updateDate();
-});
+      var app = angular.module('myApp', []);
+      app.controller('myController', function ($scope, $filter) {
+      $scope.selectedFormat = 'fullDate'; // Default date format
+      $scope.updateDate = function () {
+      var currentDate = new Date();
+      $scope.formattedDate = $filter('date')(currentDate, $scope.selectedFormat);
+      };
+      // Initial date update
+      $scope.updateDate();
+      });
       </script>
-       &lt;/body&gt;
-    &lt;/html&gt;
-      
-      
-
-
-
-
-
-
-
-
-      
-       
+      &lt;/body&gt;
+      &lt;/html&gt;
+            
     </code>
     </pre>
     </div>
