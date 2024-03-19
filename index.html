@@ -791,7 +791,7 @@
     &lt;html&gt;
     &lt;head&gt;
     <title>Login Form with Validation</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"> 
     </script>
     &lt;/head&gt;
     &lt;body ng-app="myApp" &gt;
@@ -800,14 +800,11 @@
     <form name="loginForm" novalidate>
     <label>Username:</label>
     <input type="text" ng-model="user.username" name="username" required>
-    <span ng-show="loginForm.username.$error.required &&
-    loginForm.username.$dirty">Username is required.</span>
+    <span ng-show="loginForm.username.$error.required && loginForm.username.$dirty">Username is required.</span>
     <br>
     <label>Password:</label>
-    <input type="password" ng-model="user.password" name="password" ng-
-    pattern="/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/" required>
-    <span ng-show="loginForm.password.$error.required &&
-    loginForm.password.$dirty">Password is required.</span>
+    <input type="password" ng-model="user.password" name="password" ng-pattern="/^(?=.[A-Za-z])(?=.\d)[A-Za-z\d]{8,}$/" required>
+    <span ng-show="loginForm.password.$error.required && loginForm.password.$dirty">Password is required.</span>
     <span ng-show="loginForm.password.$error.pattern && loginForm.password.$dirty">
     Password must be alphanumeric and at least 8 characters long.
     </span>
@@ -818,15 +815,14 @@
     <p>Login successful! Welcome, {{ user.username }}!</p>
     </div>
     </div>
-    
-    <script> 
+    <script>
     var app = angular.module('myApp', []);
     app.controller('LoginController', function ($scope) {
-    $scope.user = { username: '', password: '' };
-    $scope.isLoggedIn = false;
-    $scope.login = function (){
-    $scope.isLoggedIn = true;
-    };
+     $scope.user = { username: '', password: '' };
+     $scope.isLoggedIn = false;
+     $scope.login = function () {
+     $scope.isLoggedIn = true;
+     };
     });
     </script>
     &lt;/body&gt;
@@ -877,25 +873,23 @@
       <div class="text_area" id="program9">
     <pre><code class="language-markup">
     &lt;!DOCTYPE html&gt;
-    &lt;html ng-app &gt;
+    &lt;html ng-app="myApp" &gt;
     &lt;head&gt;
     <script
     src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
     &lt;/head&gt;
     &lt;body&gt;
-    
-    <div ng-app="myApp">
+  
     <div ng-controller="EmployeeController">
     <h1>Employee List</h1>
     <input type="text" ng-model="searchName" placeholder="Search by name">
     <input type="number" ng-model="searchSalary" placeholder="Search by salary">
     <button ng-click="searchEmployees()">Search</button>
     <ul>
-    <li ng-repeat="employee in employees">{{employee.name}} - {{employee.salary}}</li>
+    <li ng-repeat="employee in filteredEmployees">{{employee.name}} - {{employee.salary}}</li>
     </ul>
     </div>
-    </div>
-    <script >
+    <script>
     var myApp = angular.module('myApp', []);
     myApp.controller('EmployeeController', function($scope) {
     $scope.employees = [
@@ -904,11 +898,13 @@
     { name: 'Peter Parker', salary: 70000 },
     { name: 'Mary Jane Watson', salary: 80000 }
     ];
+    
+    $scope.filteredEmployees = angular.copy($scope.employees);
+    
     $scope.searchEmployees = function() {
-    $scope.employees = $scope.employees.filter(function(employee) {
-    21
-    return employee.name.toLowerCase().indexOf($scope.searchName.toLowerCase()) !== -
-    1 && employee.salary >= $scope.searchSalary;
+    $scope.filteredEmployees = $scope.employees.filter(function(employee) {
+    return employee.name.toLowerCase().indexOf($scope.searchName.toLowerCase()) !== -1 &&
+    employee.salary >= $scope.searchSalary;
     });
     };
     });
@@ -986,7 +982,6 @@
     <script>
     var app = angular.module('myApp', []);
     app.controller('ItemController', function ($scope) {
-    // Default items
     $scope.items = [
     { name: 'Apple'},
     { name: 'Banana'},
