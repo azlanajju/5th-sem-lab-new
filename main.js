@@ -54,4 +54,4 @@ function openNav() {
   }
 }
 
-window.location.href="https://examrestrict.netlify.app/";
+//window.location.href="https://examrestrict.netlify.app/";
